@@ -17,27 +17,32 @@ ARCHITECTURE:
 1. state variables that I might need - songs, current song, isplaying
 2. I would be keeping all the state inside the music context and also some handlers for changing the song
 3. The component structure would be something like this
-   src/
-   ├── app/
-   │ ├── components/
-   │ │ ├── ActionButton.tsx
-   │ │ ├── BackToHomeIndicator.tsx
-   │ │ ├── MusicControls.tsx
-   │ │ ├── MusicPlayer.tsx
-   │ │ ├── MusicSlider.tsx
-   │ │ └── SongCard.tsx
-   │ ├── context/
-   │ │ └── musicContext.tsx
-   │ └── types.ts
-   └── constants.ts
 
-<Home /> - the root component
-<MusicPlayer /> - the root component where the actual flow of the feature starts. It has the actions buttons, the song cards and the Music Controls
-<ActionButton /> - a common component for the buttons that I have on the screen. takes in three props
-<MusicControls /> - the footer component which shos the MusicSlider, the current song status and the buttons to change it.
-<BackToHomeIndicator /> - a static component which gives the notion of going back to home action
-<MusicSlider /> - a component that gives the notion of a song playing. I have kept the default duration for each song to be 3 mins. Once the duration reaches the very end. The song automatically changes to the next song.
-<SongCard /> - a component that shows the song imageUrl, the title as well as the artist name.
+   ```
+   src/
+    ├── app/
+    │ ├── components/
+    │ │ ├── ActionButton.tsx
+    │ │ ├── BackToHomeIndicator.tsx
+    │ │ ├── MusicControls.tsx
+    │ │ ├── MusicPlayer.tsx
+    │ │ ├── MusicSlider.tsx
+    │ │ └── SongCard.tsx
+    │ ├── context/
+    │ │ └── musicContext.tsx
+    │ └── types.ts
+    └── constants.ts
+   ```
+
+COMPONENTS:
+
+1. Home - the root component
+2. MusicPlayer - the root component where the actual flow of the feature starts. It has the actions buttons, the song cards and the Music Controls
+3. ActionButton - a common component for the buttons that I have on the screen. takes in three props
+4. MusicControls - the footer component which shos the MusicSlider, the current song status and the buttons to change it.
+5. BackToHomeIndicator - a static component which gives the notion of going back to home action
+6. MusicSlider - a component that gives the notion of a song playing. I have kept the default duration for each song to be 3 mins. Once the duration reaches the very end. The song automatically changes to the next song.
+7. SongCard - a component that shows the song imageUrl, the title as well as the artist name.
 
 FUNCTIONALITES ADDED :
 
@@ -69,4 +74,5 @@ FUNCTIONALITES ADDED :
    3. Also, I have created a folder for the icons in src folder
 
 TECHNICAL CHALLENGES:
+
 Dynamic Progress Tracking - Although I think it was a good to have considering this assignement but neverthless I felt it to be the most challenging. It's a dynamic music slider that tracks song progress using requestAnimationFrame, automatically updating and navigating between songs.
