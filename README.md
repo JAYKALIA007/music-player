@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+While going for any feature, I always tend to write doen the requirements first. So, that's where I'll start.
 
-## Getting Started
+REQUIREMENTS:
 
-First, run the development server:
+1. Implement a music player interface which has
+   a. A list of liked songs
+   b. Each song has some info - like song name, artist name, url
+   c. a go back icon at the very top
+   d. a footer music controls section, which has
+   i. a slider to show the duration
+   ii. a control panel for changing the song or play/pause.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   These are the basic reuqiremtns that I would start with.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ARCHITECTURE:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. state variables that I might need - songs, current song, isplaying
+2. I would be keeping all the state inside the music context and also some handlers for changing the song
+3. The component structure would be something like this
+   src/
+   ├── app/
+   │ ├── components/
+   │ │ ├── ActionButton.tsx
+   │ │ ├── BackToHomeIndicator.tsx
+   │ │ ├── MusicControls.tsx
+   │ │ ├── MusicPlayer.tsx
+   │ │ ├── MusicSlider.tsx
+   │ │ └── SongCard.tsx
+   │ ├── context/
+   │ │ └── musicContext.tsx
+   │ └── types.ts
+   └── constants.ts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<Home /> - the root component
+<MusicPlayer /> - the root component where the actual flow of the feature starts. It has the actions buttons, the song cards and the Music Controls
+<ActionButton /> - a common component for the buttons that I have on the screen. takes in three props
+<MusicControls /> - the footer component which shos the MusicSlider, the current song status and the buttons to change it.
+<BackToHomeIndicator /> - a static component which gives the notion of going back to home action
+<MusicSlider /> - a component that gives the notion of a song playing. I have kept the default duration for each song to be 3 mins. Once the duration reaches the very end. The song automatically changes to the next song.
+<SongCard /> - a component that shows the song imageUrl, the title as well as the artist name.
 
-## Learn More
+FUNCTIONALITES ADDED :
 
-To learn more about Next.js, take a look at the following resources:
+1. Used React Context (MusicPlayerContext) to store the following
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   1. Global song state
+   2. Play/pause management
+   3. Song navigation logic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Progress Tracking
 
-## Deploy on Vercel
+   1. Automatic song progression
+   2. Pause/resume functionality
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Image Loading
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   1. Shimmer effect during image load
+   2. Conditional rendering
+
+4. Change song
+
+   1. Click on the song card to play it
+   2. Use the music controls to change the song
+   3. The songs automatically cycle and go back to the first song if the last song has been reached and vice-versa.
+
+5. Replicated the UI given in figma
+   1. I have replicated(tried to) the UI end to end from the figma file
+   2. have also used the icons from the file.
+   3. Also, I have created a folder for the icons in src folder
+
+TECHNICAL CHALLENGES:
+Dynamic Progress Tracking - Although I think it was a good to have considering this assignement but neverthless I felt it to be the most challenging. It's a dynamic music slider that tracks song progress using requestAnimationFrame, automatically updating and navigating between songs.
