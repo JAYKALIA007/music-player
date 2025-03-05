@@ -39,7 +39,6 @@ export const MusicSlider = () => {
             className="absolute top-0 left-0 h-1 bg-white transition-all duration-200 ease-linear"
             style={{
               width: `${progress * 100}%`,
-              transition: "width 0.1s linear",
             }}
           ></div>
         </div>
@@ -48,7 +47,6 @@ export const MusicSlider = () => {
           className="absolute w-4 h-4 bg-white rounded-full shadow-md transform -translate-x-1/2 transition-all duration-200 ease-linear"
           style={{
             left: `${progress * 100}%`,
-            transition: "left 0.1s linear",
           }}
         ></div>
       </div>
