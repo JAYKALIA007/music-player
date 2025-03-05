@@ -3,14 +3,21 @@ While going for any feature, I always tend to write doen the requirements first.
 REQUIREMENTS:
 
 1. Implement a music player interface which has
+  
    a. A list of liked songs
+   
    b. Each song has some info - like song name, artist name, url
+   
    c. a go back icon at the very top
+   
    d. a footer music controls section, which has
-   i. a slider to show the duration
-   ii. a control panel for changing the song or play/pause.
+   
+      1. a slider to show the duration
+   
+      2. a control panel for changing the song or play/pause.
+   
 
-   These are the basic reuqiremtns that I would start with.
+   These are the basic reuqirements that I would start with.
 
 ARCHITECTURE:
 
@@ -38,13 +45,13 @@ COMPONENTS:
 
 1. Home - the root component
 2. MusicPlayer - the root component where the actual flow of the feature starts. It has the actions buttons, the song cards and the Music Controls
-3. ActionButton - a common component for the buttons that I have on the screen. takes in three props
-4. MusicControls - the footer component which shos the MusicSlider, the current song status and the buttons to change it.
-5. BackToHomeIndicator - a static component which gives the notion of going back to home action
+3. ActionButton - a common component for the buttons that I have on the screen. takes in three props -> icon, onClick handler, disabled
+4. MusicControls - the footer component which shows the MusicSlider, the current song status and the buttons to change it.
+5. BackToHomeIndicator - a static component which gives the notion of going back to previous page
 6. MusicSlider - a component that gives the notion of a song playing. I have kept the default duration for each song to be 3 mins. Once the duration reaches the very end. The song automatically changes to the next song.
 7. SongCard - a component that shows the song imageUrl, the title as well as the artist name.
 
-FUNCTIONALITES ADDED :
+FUNCTIONALIITES ADDED :
 
 1. Used React Context (MusicPlayerContext) to store the following
 
@@ -75,4 +82,4 @@ FUNCTIONALITES ADDED :
 
 TECHNICAL CHALLENGES:
 
-Dynamic Progress Tracking - Although I think it was a good to have considering this assignement but neverthless I felt it to be the most challenging. It's a dynamic music slider that tracks song progress, automatically updating and navigating between songs.
+Dynamic Progress Tracking - Although I think it was a good to have feature considering this assignment but nevertheless it was a bit challenging. It's a dynamic music slider that tracks song progress, automatically updating and navigating between songs.
