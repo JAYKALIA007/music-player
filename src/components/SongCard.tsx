@@ -31,7 +31,7 @@ export const SongCard = ({ song }: { song: Song }) => {
           width={150}
           height={150}
           alt={song.title}
-          className={`w-[145.16px] h-[145.16px] object-cover rounded-lg transition-opacity duration-300 ${
+          className={`w-[145.16px] h-[145.16px] object-cover rounded-l-lg transition-opacity duration-300 ${
             isImageLoaded ? "opacity-100" : "opacity-0"
           }`}
           onLoadingComplete={handleImageLoad}

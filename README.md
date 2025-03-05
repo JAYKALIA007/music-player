@@ -75,4 +75,4 @@ FUNCTIONALITES ADDED :
 
 TECHNICAL CHALLENGES:
 
-Dynamic Progress Tracking - Although I think it was a good to have considering this assignement but neverthless I felt it to be the most challenging. It's a dynamic music slider that tracks song progress using requestAnimationFrame, automatically updating and navigating between songs.
+Dynamic Progress Tracking - Although I think it was a good to have considering this assignement but neverthless I felt it to be the most challenging. It's a dynamic music slider that tracks song progress, automatically updating and navigating between songs.
